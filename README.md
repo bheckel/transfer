@@ -1,2 +1,2 @@
 # transfer
-transfer files across systems
+transfer/synchronize files across systems
