@@ -1,0 +1,216 @@
+#!/bin/bash
+##############################################################################
+#     Name: sasrun (s/b symlinked as sr and mapped as ;v)
+#
+#  Summary: Run Unix or PC SAS without the IDE.  Also allow MVS code 
+#           debugging on the PC by optionally chopping out the JCL from the
+#           first N lines.
+#
+#           TODO tail -f the log as it runs
+#
+#  Created: Fri 17 May 2002 14:14:22 (Bob Heckel)
+# Modified: Fri 06 Nov 2015 08:05:05 (Bob Heckel)
+##############################################################################
+EDITOR=vim  # TODO remove the checks and this variable, no longer setting it in bashrc
+
+MYPID=$$
+TMPSASCODE="tmpsas.$MYPID.sas"  # tmpsas* are deleted at successful completion
+TMPLOG="tmpsas.$MYPID.log"
+TMPLST="tmpsas.$MYPID.lst"
+MIN_EXPECTED_ARGS=1
+# Most common locations by platform
+SAS8WIN=C:/PROGRA~1/SASINS~1/SAS/V8/sas.exe
+SAS91WIN=C:/PROGRA~1/SAS/SAS9~1.1/sas.exe
+SAS93WIN=C:/PROGRA~1/SASHome/SASFoundation/9.3/sas.exe
+SAS94UX=/usr/local/SAS94/sashome/SASFoundation/9.4/sas
+SAS94UX2=/sas/sashome/SASFoundation/9.4/sas
+USER=`whoami`
+
+
+Usage() {
+  echo "Usage: $0 [-dN -v -i -o -s] foo.sas [SYSPARM]"
+  echo '           -c submit a job using SAS Connect (ignoring any JCL)'
+  echo "           -i edit last run's SAS List"
+  echo "           -o edit last run's SAS Log"
+  echo "           -s print last run's SAS List to STDOUT"
+  echo '           -v verbose SAS command line init chatter'
+}
+
+
+# User may have typed -h or --help
+if [ $# -lt $MIN_EXPECTED_ARGS ]; then
+  Usage
+  exit 1
+fi
+
+# Use as a demo for passing parms unless a real parm is passed
+if [ -z "$2" ]; then
+  syp=
+else
+  syp="$2"
+fi
+
+echo "$0: $1 is running on $HOSTNAME ..."
+echo "`pwd`/$TMPSASCODE `pwd`/$TMPLOG"
+
+# Note: test()'s argument is case sensitive
+if test "$HOSTNAME" = 'mordesk19' || test  "$HOSTNAME" = 'sati'; then
+  SASEXECUTABLE="c:/PROGRA~1/SAS/SAS9~1.1/sas.exe \
+                 -NOsplash \
+                 -NOstimer \
+                 -NOfullstimer \
+                 -NOechoauto \
+                 -NOverbose \
+                 -echo 'NOTE: {{{ (sasrun) executed via $0 on $HOSTNAME' \
+                 -autoexec c:/cygwin/home/$USER/code/sas/autoexec.sas \
+                 -sysparm '$syp' \
+                 -sysin"
+elif test "$HOSTNAME" = 'tstdev'; then
+  SASEXECUTABLE="/apps/sas8.2/sas \
+                 -autoexec /home/$USER/code/sas/autoexec.sas \
+                 -sysin"
+elif [[ "$HOSTNAME" = 'ZEBWL10D43164' || "$HOSTNAME" = 'ZEBWL12H29961' ]]; then
+  SASEXECUTABLE="$SAS8WIN \
+                 -NOechoauto \
+                 -echo 'NOTE: {{{ (sasrun) executed via $0 on $HOSTNAME' \
+                 -icon
+                 -autoexec u://code/sas/autoexec.sas \
+                 -sysparm '$syp' \
+                 -sysin"
+elif [[ "$HOSTNAME" = 'ZEBWL12H26564' || "$HOSTNAME" = 'ZEBWD12H01067' ]]; then
+  SASEXECUTABLE="$SAS93WIN \
+                 -NOechoauto \
+                 -echo 'NOTE: {{{ (sasrun) executed via $0 on $HOSTNAME' \
+                 -icon
+                 -sysparm '$syp' \
+                 /*-emailhost 'smtphub.glaxo.com' \*/
+                 /*-sgio \*/
+                 -autoexec u://code/sas/autoexec.sas \
+                 -sysin"
+elif test "$HOSTNAME" = 'sas-01.twa.ateb.com'; then
+###  SASEXECUTABLE="nice -n19 $SAS94UX2 \
+###  echo reach
+  SASEXECUTABLE="$SAS94UX2 \
+                 -NOechoauto \
+                 -NOnews \
+                 -sysparm '$syp' \
+                 -sysin"
+###                 -noautoexec \
+else
+  SASEXECUTABLE="$SAS94UX \
+                 -NOechoauto \
+                 -NOnews \
+                 -sysparm '$syp' \
+                 -sysin"
+fi
+
+Exec_SAS_sysin() {
+  # TODO unable to check for -x of SASEXECUTABLE file before running, minor
+  $SASEXECUTABLE $TMPSASCODE
+
+  if [ -e $TMPLOG ]; then
+    # Open in 2 windows, starting at the first error, but avoid stopping at
+    # ERRORABEND, etc..
+    if [ $EDITOR = 'vim' ]; then
+      if [ -e $TMPLST ];then
+        # TODO how to do Ctr-W x to get Log on bottom and not lose the /^ERROR.*:/ ?
+        $EDITOR -R -n -o -c '/^ERROR.*:/' $TMPLOG $TMPLST
+      else
+        $EDITOR -R -n -c '/^ERROR.*:/' $TMPLOG
+      fi
+    fi
+  else
+    echo "$0: Failed run, $TMPLOG doesn't exist."
+  fi
+
+  if [ -e $TMPSASCODE ]; then
+    rm $TMPSASCODE
+  fi
+  # We may occasionally want to see a previous run's output:
+  if [ -e $TMPLOG ]; then
+    # Make sure we don't copy accidents bigger than 100MB
+    logfilesize=$(find $TMPLOG -printf "%s")
+    if [ $logfilesize -lt 100000000 ];then
+      mv -f $TMPLOG $HOME/tmp/tmpsas.lastrun.sasrun.log
+    fi
+    # 22-Nov-13 chmod required on Win7
+###    mv -f $TMPLOG $HOME/tmp/tmpsas.lastrun.sasrun.log && chmod 755 $HOME/tmp/tmpsas.lastrun.sasrun.log
+  fi
+  if [ -e $TMPLST ]; then
+    lstfilesize=$(find $TMPLST -printf "%s")
+    if [ $lstfilesize -lt 100000000 ];then
+      # 22-Nov-13 chmod required on Win7
+###      mv -f $TMPLST $HOME/tmp/tmpsas.lastrun.sasrun.lst && chmod 755 $HOME/tmp/tmpsas.lastrun.sasrun.lst
+      mv -f $TMPLST $HOME/tmp/tmpsas.lastrun.sasrun.lst
+    fi
+  fi
+
+  exit 0
+}
+
+
+# Using getopt's silent error ':'
+while getopts cvVMhHiIoOsSd: the_option; do
+  case "$the_option" in
+         c )  echo 'Running SAS Connect, with JCL removal as required ...'
+              echo '%include "&HOME/code/sas/connect_setup.sas"; signon cdcjes2; rsubmit;' >| $TMPSASCODE
+              # TODO remove lines w/o //* like LISTC LEVEL(BF19)
+              # TODO extract //IN (...) and insert a filename stmt in SAS code
+              if [ -f "$2" ]; then
+                # Remove JCL, if any.
+                cat "$2" | sed 's#^/[/\*]\?[\w\*]\?.*##' >> $TMPSASCODE
+              else
+                echo "sasrun: Error - source file $2 does not exist.  Exiting."
+                exit 2
+              fi
+              # Leading ';' protects against included macros that are called
+              # without a trailing semi (e.g. jsmaaaa).
+              echo ';endrsubmit; signoff cdcjes2' >> $TMPSASCODE
+              Exec_SAS_sysin
+              ;;
+         d )  echo -n "Removing first $OPTARG lines of source file..."
+              cat "$2" | awk "{if(NR>$OPTARG)print}" > $TMPSASCODE
+              echo 'done'
+              Exec_SAS_sysin
+              ;;
+         i )  $EDITOR -R -n $HOME/tmp/tmpsas.lastrun.sasrun.lst
+              exit 0
+              ;;
+         o )  $EDITOR -R -n $HOME/tmp/tmpsas.lastrun.sasrun.log
+              exit 0
+              ;;
+         s )  cat $HOME/tmp/tmpsas.lastrun.sasrun.lst
+              exit 0
+              ;;
+     h | H )  Usage
+              echo 'Runs Unix or PC SAS without the GUI (with or without Connect)'
+              exit 0
+              ;;
+     v | V )  # Verbose.  Build informational msg.
+              TMP=`echo $SASEXECUTABLE | sed 's/ \{2,\}//'`
+              echo "Running: $TMP $TMPSASCODE"
+              cat $2 > $TMPSASCODE
+              Exec_SAS_sysin
+              ;;
+
+         * )  'sasrun: Error: bad switch.  Exiting.'
+              echo "$1 and $2 and $the_option"  # carriage ret as side-effect
+              Usage
+              exit 3
+              ;;
+  esac
+done
+
+# Fall-through (no switch received from user)
+if [ -f "$1" ]; then
+  cat "$1" >> $TMPSASCODE
+  Exec_SAS_sysin
+else
+  echo "sasrun: Error - source file $1 does not exist."
+  echo "Are there spaces in the filename??  Exiting."
+  exit 4
+fi
+
+
+echo 'sasrun: should not reach'
+exit 5
