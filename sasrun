@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################################################
-#     Name: sasrun (s/b symlinked as sr and mapped as ;v)
+#     Name: sasrun (s/b symlinked as sr and called with my ;v vim map)
 #
 #  Summary: Run Unix or PC SAS without the IDE.  Also allow MVS code 
 #           debugging on the PC by optionally chopping out the JCL from the
@@ -9,9 +9,8 @@
 #           TODO tail -f the log as it runs
 #
 #  Created: Fri 17 May 2002 14:14:22 (Bob Heckel)
-# Modified: Fri 06 Nov 2015 08:05:05 (Bob Heckel)
+# Modified: Mon 18 Apr 2016 15:41:57 (Bob Heckel)
 ##############################################################################
-EDITOR=vim  # TODO remove the checks and this variable, no longer setting it in bashrc
 
 MYPID=$$
 TMPSASCODE="tmpsas.$MYPID.sas"  # tmpsas* are deleted at successful completion
@@ -22,6 +21,7 @@ MIN_EXPECTED_ARGS=1
 SAS8WIN=C:/PROGRA~1/SASINS~1/SAS/V8/sas.exe
 SAS91WIN=C:/PROGRA~1/SAS/SAS9~1.1/sas.exe
 SAS93WIN=C:/PROGRA~1/SASHome/SASFoundation/9.3/sas.exe
+SAS94WIN=E:/Progra~1/SASHome/SASFoundation/9.4/sas.exe
 SAS94UX=/usr/local/SAS94/sashome/SASFoundation/9.4/sas
 SAS94UX2=/sas/sashome/SASFoundation/9.4/sas
 USER=`whoami`
@@ -87,7 +87,7 @@ elif [[ "$HOSTNAME" = 'ZEBWL12H26564' || "$HOSTNAME" = 'ZEBWD12H01067' ]]; then
                  /*-sgio \*/
                  -autoexec u://code/sas/autoexec.sas \
                  -sysin"
-elif test "$HOSTNAME" = 'sas-01.twa.ateb.com'; then
+elif [[ "$HOSTNAME" = 'sas-01.twa.ateb.com' || "$HOSTNAME" = 'sasdev-01.twa.ateb.com' ]]; then
 ###  SASEXECUTABLE="nice -n19 $SAS94UX2 \
 ###  echo reach
   SASEXECUTABLE="$SAS94UX2 \
@@ -96,6 +96,12 @@ elif test "$HOSTNAME" = 'sas-01.twa.ateb.com'; then
                  -sysparm '$syp' \
                  -sysin"
 ###                 -noautoexec \
+elif [[ "$HOSTNAME" = 'SAS-01' || "$HOSTNAME" = 'SAS-01' ]]; then
+  SASEXECUTABLE="$SAS9WIN \
+                 -NOechoauto \
+                 -NOnews \
+                 -sysparm '$syp' \
+                 -sysin"
 else
   SASEXECUTABLE="$SAS94UX \
                  -NOechoauto \
@@ -111,7 +117,7 @@ Exec_SAS_sysin() {
   if [ -e $TMPLOG ]; then
     # Open in 2 windows, starting at the first error, but avoid stopping at
     # ERRORABEND, etc..
-    if [ $EDITOR = 'vim' ]; then
+    if [[ $EDITOR =~ .*vim ]]; then
       if [ -e $TMPLST ];then
         # TODO how to do Ctr-W x to get Log on bottom and not lose the /^ERROR.*:/ ?
         $EDITOR -R -n -o -c '/^ERROR.*:/' $TMPLOG $TMPLST
@@ -183,7 +189,7 @@ while getopts cvVMhHiIoOsSd: the_option; do
               exit 0
               ;;
      h | H )  Usage
-              echo 'Runs Unix or PC SAS without the GUI (with or without Connect)'
+              echo 'Runs Unix or PC SAS without the GUI (and with or without Connect)'
               exit 0
               ;;
      v | V )  # Verbose.  Build informational msg.
