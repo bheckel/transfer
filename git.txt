@@ -1,3 +1,14 @@
+mkdir dotfiles
+cd dotfiles
+git init
+git remote add origin git@github.com:mygithubacct/dotfiles.git
+git pull origin master
+...edit/add/commit
+git push origin master
+
+---
+
+mostly OBSOLETE
 0 bheckel@appa[master] Downloads/ Sun Jan 03 09:35:25                                              
 $ alias hometo                                                                                     
 alias hometo='ls -l ~/transfer/c && echo '\''...files newer than ^^^this^^^ one will be added to ta
