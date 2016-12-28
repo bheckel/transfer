@@ -6,8 +6,8 @@ vol up e /findme
 
 vol up t    tab
 
-$ cd dotfiles
-$ git pull origin master
+cd dotfiles && git pull origin master
 
-apt update
-apt upgrade
+cd transfer && git add readme.termux.txt && git push origin master
+
+apt update && apt upgrade
