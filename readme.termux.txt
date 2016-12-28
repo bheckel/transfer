@@ -8,6 +8,6 @@ vol up t    tab
 
 cd dotfiles && git pull origin master
 
-cd transfer && git add readme.termux.txt && git push origin master
+cd transfer && git add readme.termux.txt && git commit -m'mod' && git push origin master
 
 apt update && apt upgrade
