@@ -56,7 +56,7 @@ syn region sasEnd  start="%macro bobh\d*;" end="%mend bobh\d*" contains=sasTodo
 syn match sasSteps  "^\s*DATA\s\+"
 syn match sasSteps  "\s*PROC \w\+"
 " Specific PROCs do not need to be listed if we use this line.
-syn keyword sasSteps  RUN QUIT
+syn keyword sasSteps  RUN QUIT ENDDATA
 
 """syn match   sasProcs  "\s*PROC \w\+"
 """syn keyword sasProcs  RUN QUIT
@@ -84,8 +84,8 @@ syn match sasWild "\w\+:[^\\]"
 
 syn match sasMisc  "\s\+FILENAME="
 syn match sasMisc  "\s\+END="
-syn keyword sasMisc  MISSOVER FLOWOVER TRUNCOVER DSD DLM NOOBS NODUP NODUPKEY DUPOUT
-syn keyword sasMisc  NOLIST DELIMITER LRECL FILEVAR
+syn keyword sasMisc  MISSOVER FLOWOVER TRUNCOVER DSD DLM NOOBS NODUP NODUPKEY NOEQUALS DUPOUT
+syn keyword sasMisc  NOLIST DELIMITER LRECL FILEVAR OUTOBS NOTSORTED GROUPFORMAT
 
 syn keyword sasConditional  DO TO ELSE END IF THEN UNTIL WHILE EQ: EQ EQT GT LT LE GE 
 syn keyword sasConditional  NE: NE IN NOTIN OVER CASE WHEN SELECT OTHERWISE AND 
@@ -99,7 +99,7 @@ syn match sasStatement  "FOOTNOTE\d\+"
 
 syn keyword sasStatement  ABORT ARRAY ATTRIB AXIS1 AXIS2 CATNAME CLASS COLUMNS CONTAINS
 syn keyword sasStatement  CONTINUE CNTLIN DATALINES DATALINES4 DELETE DISPLAY
-syn keyword sasStatement  DECLARE DEFINE DESC DESCENDING DM DROP FILE FILENAME 
+syn keyword sasStatement  DECLARE DCL DEFINE DESC DESCENDING DM DROP FILE FILENAME 
 syn keyword sasStatement  FOOTNOTE FORMAT GOTO INFILE INFORMAT INVALUE KEEP LABEL 
 syn keyword sasStatement  LEAVE LENGTH LIBNAME LINK LIST LOSTCARD MERGE MISSING 
 syn keyword sasStatement  MODIFY ODS OUTPUT PAGE PAGEBY PLOT PUT REDIRECT REMOVE 
@@ -165,6 +165,7 @@ syn match sasMacro  "%THEN"
 syn match sasMacro  "%TO\s"
 syn match sasMacro  "%TRIM"
 syn match sasMacro  "%UNQUOTE"
+syn match sasMacro  "%UNTIL"
 syn match sasMacro  "%UNTIL\s"
 syn match sasMacro  "%UPCASE"
 syn match sasMacro  "%VERIFY"
@@ -193,7 +194,7 @@ syn keyword sasFunction  FPUT FREAD FREWIND FRLEN FSEP FUZZ FWRITE
 syn keyword sasFunction  GAMINV GAMMA GETOPTION GETVARC GETVARN HBOUND
 syn keyword sasFunction  HMS HOSTHELP HOUR IBESSEL INDEXC
 syn keyword sasFunction  INDEXW INPUTC INPUTN INT INTCK INTNX
-syn keyword sasFunction  INTRR IRR JBESSEL JULDATE KURTOSIS LAG LAG1 LAG2 LARGEST
+syn keyword sasFunction  INTRR IRR JBESSEL JULDATE KURTOSIS LAG LAG1 LAG2 LAG3 LAG4 LAG6 LARGEST
 syn keyword sasFunction  LBOUND LEFT LENGTHN LGAMMA LIBNAME LIBREF LOG LOG10
 syn keyword sasFunction  LOG2 LOGPDF LOGPMF LOGSDF LOWCASE MIN MAX MDY
 syn keyword sasFunction  MEAN MIN MINUTE MOD MONOTONIC MONTH MOPEN MORT N
@@ -218,7 +219,7 @@ syn keyword sasFunction  VFORMATWX VFORMATX VINARRAY VINARRAYX VINFORMAT
 syn keyword sasFunction  VINFORMATD VINFORMATDX VINFORMATN VINFORMATNX
 syn keyword sasFunction  VINFORMATW VINFORMATWX VINFORMATX VLABEL
 syn keyword sasFunction  VLABELX VLENGTH VLENGTHX VNAME VNAMEX VTYPE VTYPEX 
-syn keyword sasFunction  WEEKDAY YEAR YYQ ZIPFIPS ZIPNAME ZIPNAMEL ZIPSTATE 
+syn keyword sasFunction  WEEKDAY WHICHN WHICHC YEAR YYQ ZIPFIPS ZIPNAME ZIPNAMEL ZIPSTATE 
 
 syn keyword sasSQL  ALTER AS AVG CASCADE COALESCE DELETE DESCRIBE DISTINCT DROP
 syn keyword sasSQL  FOREIGN FROM HAVING INSERT INTO IN JOIN LIKE MIN MAX MODIFY
@@ -286,7 +287,7 @@ syn match sasInpMod  "@\+;"          " actually linehold but good enough for now
 syn match sasErrMsg  "cancel;"
 
 " goptions for SAS Graph
-syn region sasOption  start="g\?options" end=";"
+syn region sasOption  start="g\?options " end=";"
 
 syn match sasSemi  ";"
 
