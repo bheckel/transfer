@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	SAS v8
 " Original Maintainer:	James Kidd <james.kidd@covance.com>
-" Modified: Fri 09 Jan 2015 11:20:15 (Bob Heckel)
+" Modified: Wed 11 Jan 2017 10:52:13 (Bob Heckel)
 "
 " 29-Jul-13 Windows gvim must have this file manually copied to c:\Program Files\Vim\vim73\syntax
 "
@@ -267,9 +267,10 @@ syn match sasUnderscore  "_SAME_"
 " SAS Special Missing Values (not an underscore but no better place to put this)
 syn match sasUnderscore  "\.[a-z];"
 
-syn match sasLogmsgOK  "NOTE:"
-syn match sasLogmsgMAYBE  "WARNING:"
-syn match sasLogmsgRED  "ERROR:"
+" See saslog.vim
+"""syn match sasLogmsgOK  "NOTE:"
+"""syn match sasLogmsgMAYBE  "WARNING:"
+"""syn match sasLogmsgRED  "ERROR:"
 
 " Emphasize important msgs in Log
 syn match sasBang  "^!!!.*"
@@ -306,13 +307,13 @@ if version >= 508 || !exists("did_sas_syntax_inits")
    hi sasCards	     ctermfg=DarkGray  guifg=Gray
    hi sasDatasetOpt  ctermfg=Yellow guifg=Yellow
    hi sasEnd	       ctermfg=DarkGray guifg=DarkGray
-   hi sasErrLine     ctermfg=LightYellow ctermbg=Red guifg=LightYellow guibg=Red
+"""   hi sasErrLine     ctermfg=LightYellow ctermbg=Red guifg=LightYellow guibg=Red
    hi sasErrMsg      ctermfg=LightYellow ctermbg=Red cterm=bold gui=bold 
    hi sasFunction    ctermfg=LightYellow guifg=LightYellow
    hi sasInpMod      ctermfg=LightCyan guifg=LightCyan cterm=bold gui=bold
-   hi sasLogmsgMAYBE ctermfg=Yellow guifg=Yellow cterm=bold gui=bold
-   hi sasLogmsgOK    ctermfg=Green guifg=Green cterm=bold gui=bold
-   hi sasLogmsgRED   ctermfg=Red guifg=Red cterm=bold gui=bold
+"""   hi sasLogmsgMAYBE ctermfg=Yellow guifg=Yellow cterm=bold gui=bold
+"""   hi sasLogmsgOK    ctermfg=Green guifg=Green cterm=bold gui=bold
+"""   hi sasLogmsgRED   ctermfg=Red guifg=Red cterm=bold gui=bold
    hi sasMacroBlock  ctermfg=Magenta guifg=Magenta cterm=bold gui=bold 
    hi sasMacroCall   ctermfg=Red guifg=Red cterm=bold gui=bold 
    hi sasMacroVar    ctermfg=LightCyan guifg=LightCyan cterm=bold gui=bold 
