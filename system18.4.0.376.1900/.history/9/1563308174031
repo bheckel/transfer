@@ -1,0 +1,75 @@
+asdf;
+ROLLBACK;
+
+--last compiles
+SELECT owner, object_name, object_type, status, last_ddl_time FROM dba_objects WHERE object_type LIKE 'PACKAGE%' AND owner='ESTARS' ORDER BY 5 DESC;
+SELECT * FROM DDL_EVENT WHERE event_date>sysdate-2 and ora_dict_obj_name='DAILY_DATA_MAINTENANCE' ORDER BY DDL_EVENT_ID DESC;
+
+--locks
+SELECT s.OSUSER, s.sid ,s.serial# ,s.username ,s.machine ,s.status ,s.lockwait ,t.used_ublk ,t.used_urec ,t.start_time from v$transaction t inner join v$session s on t.addr = s.taddr;
+
+--invalids
+select * from user_objects o where object_type != 'JAVA CLASS' and status = 'INVALID' order by 1;
+
+--kill
+select * from v$session where osuser='boheck' order by status, logon_time, sid;
+--SQL> exec sys.kill_session(51,6449);
+
+SELECT * FROM email_messages WHERE created>sysdate-2 ORDER BY created DESC;
+
+--SQL> set define off;
+--cd C:\Orion\workspace\data\Source\SQL\OrionScripts\
+--@C:\Orion\workspace\data\Source\SQL\OrionScripts\ORION-${JIRA}_ddl_change.sql
+
+-- git pull && git checkout -b feature/ORION-$JIRA && git push --set-upstream origin feature/ORION-$JIRA
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--SELECT * FROM cdhub_error where orion_entity_id=;
+
+--prove orion doesnt have them
+SELECT * FROM account_base WHERE account_id IN (
+    select distinct ah.account_id
+      from cdhub_error ce, account_hist ah
+     WHERE to_number(ce.orion_entity_id) = ah.merged_into_account_id
+       and ah.wm_optype = 'D'
+       and ce.updated between ah.actual_updated - 1/288 --minus 5 minutes
+                      and ah.actual_updated + 1/4   --plus 6 hours
+   and ce.orion_entity_id IS NOT NULL
+   AND ce.direction = 'orion to cdhub'
+   AND ce.action_attempted = 'AccountMerge'
+   and UPPER(ce.error_thrown) LIKE '%NO ROW WITH THE GIVEN IDENTIFIER EXISTS: [COM.SAS.ORION.FRAMEWORK.ACCOUNT.ACCOUNTIMPL%'
+);
+
+/*
+BEGIN
+  FOR r IN (
+    SELECT DISTINCT ah.account_id
+      FROM cdhub_error ce, account_hist ah
+     WHERE to_number(ce.orion_entity_id) = ah.merged_into_account_id
+       AND ah.wm_optype = 'D'
+       AND ce.updated BETWEEN ah.actual_updated - 1/288 --minus 5 minutes
+                      AND ah.actual_updated + 1/4   --plus 6 hours
+   AND ce.orion_entity_id IS NOT NULL
+   AND ce.direction = 'orion to cdhub'
+   AND ce.action_attempted = 'AccountMerge'
+   AND UPPER(ce.error_thrown) LIKE '%NO ROW WITH THE GIVEN IDENTIFIER EXISTS: [COM.SAS.ORION.FRAMEWORK.ACCOUNT.ACCOUNTIMPL%'
+ ) LOOP
+     dbms_output.put_line(r.account_id);
+     cdhub_jms.account_delete_jms_msg(r.account_id,'D','carynt\essppt');
+     estars.sleep(10 * 1000);
+  END LOOP;
+END;
+*/
+
+--show time gaps
+    SELECT DISTINCT ah.account_id, ce.updated, ah.updated
+      FROM cdhub_error ce, account_hist ah
+     WHERE to_number(ce.orion_entity_id) = ah.merged_into_account_id
+       AND ah.wm_optype = 'D'
+       AND ce.updated BETWEEN ah.actual_updated - 1/288 --minus 5 minutes
+                      AND ah.actual_updated + 1/4   --plus 6 hours
+   AND ce.orion_entity_id IS NOT NULL
+   AND ce.direction = 'orion to cdhub'
+   AND ce.action_attempted = 'AccountMerge'
+   AND UPPER(ce.error_thrown) LIKE '%NO ROW WITH THE GIVEN IDENTIFIER EXISTS: [COM.SAS.ORION.FRAMEWORK.ACCOUNT.ACCOUNTIMPL%'
+;
