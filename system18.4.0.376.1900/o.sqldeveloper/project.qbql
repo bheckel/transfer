@@ -1,0 +1,6 @@
+[fileURL dbURL]
+ "file:/C:/Orion/workspace/data/Source/SQL/ACCOUNTS_TYPES.pck" "sqldev.nav:IdeConnections%2523esd//ESTARS/PACKAGE/ACCOUNTS_TYPES"
+ "file:/C:/Orion/workspace/data/Source/SQL/ACCOUNTS_TYPES.pck" "sqldev.nav:IdeConnections%2523esd//ESTARS/PACKAGE/ACCOUNTS_TYPES/PACKAGE+BODY/ACCOUNTS_TYPES"
+ "file:/C:/Users/boheck/OneDrive - SAS/orion-31765_check_linkages_acct_terr_cleanup/ORION31765.pck" "sqldev.nav:IdeConnections%2523esd//ESTARS/PACKAGE/ORION31765"
+ "file:/C:/Users/boheck/OneDrive - SAS/orion-31765_check_linkages_acct_terr_cleanup/ORION31765.pck" "sqldev.nav:IdeConnections%2523esd//ESTARS/PACKAGE/ORION31765/PACKAGE+BODY/ORION31765"
+ "file:/C:/Users/boheck/OneDrive - SAS/orion-38694_add_aka_french/ORION38694.pck" "sqldev.nav:IdeConnections%2523esd//ESTARS/PACKAGE/ORION38694"

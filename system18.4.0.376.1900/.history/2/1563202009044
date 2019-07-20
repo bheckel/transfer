@@ -1,0 +1,99 @@
+ROLLBACK;
+asdf; asdf
+
+--last compiles
+SELECT owner, object_name, object_type, status, last_ddl_time FROM dba_objects WHERE object_type LIKE 'PACKAGE%' AND owner='ESTARS' ORDER BY 5 DESC;
+SELECT * FROM DDL_EVENT WHERE event_date>sysdate-2 and ora_dict_obj_name='DAILY_DATA_MAINTENANCE' ORDER BY DDL_EVENT_ID DESC
+
+--locks
+SELECT s.OSUSER, s.sid ,s.serial# ,s.username ,s.machine ,s.status ,s.lockwait ,t.used_ublk ,t.used_urec ,t.start_time from v$transaction t inner join v$session s on t.addr = s.taddr;
+
+--invalids
+select * from user_objects o where object_type != 'JAVA CLASS' and status = 'INVALID' order by 1;
+
+--kill
+select * from v$session where osuser='boheck' order by status, logon_time, sid
+SQL> exec sys.kill_session(51,6449);
+
+SELECT * FROM email_messages WHERE created>sysdate-2 ORDER BY created DESC
+
+SQL> set define off;
+@C:\Orion\workspace\data\Source\SQL\ OrionScripts\ORION-38694_ddl_change.sql
+
+-- git pull && git checkout -b feature/ORION-38694 && git push --set-upstream origin feature/ORION-38694
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SELECT * FROM account_name WHERE account_id=/*3537043*/ 223625 --sei-fagor
+
+SELECT * FROM account_name WHERE account_id=3537043 --pseg
+SELECT * FROM account_base WHERE account_id=3537043
+SELECT * FROM RS_ACCOUNT_OVERVIEW where  account_id=3537043
+SELECT * FROM account_attribute a WHERE a.account_attribute_id=3537043
+
+SELECT * FROM account_name WHERE trunc(created)='01Apr19' account_id=/*3537043*/ 223625 
+
+INSERT INTO account_name (account_name_id, account_id, account_name , Original_Account_Name, override_account_name, created, createdby, updated, updatedby, h_version)
+                  VALUES (uid_account_name.nextval, 223625, 'SEIFAGOR', 0, 0, SYSDATE, 2, SYSDATE, 2, 0)
+                  COMMIT
+                  
+DELETE FROM account_name a WHERE a.account_name_id=23684621 23684541 23684521
+SELECT * FROM account_name a WHERE a.account_name_id=23684621
+SELECT * FROM ACCOUNT_NAME_ATTRIBUTE a WHERE a.account_attribute_id=223625
+SELECT * FROM account_base a WHERE a.account_id=223625
+
+BEGIN ACCOUNTS.getAccountNameForMatching(in_accountName); END;
+
+INSERT INTO account_name (account_name_id, account_id, account_name , Original_Account_Name, override_account_name, ACCOUNT_NAME_FOR_MATCHING, created, createdby, updated, updatedby, h_version)
+                  VALUES (uid_account_name.nextval, 223625, 'SEIFAGOR', 0, 0, 'SEIFAGOR', SYSDATE, 2, SYSDATE, 2, 0)
+                  
+begin ACCOUNT_ASSIGNMENTS.update_account_search(223625); end;  COMMIT; --wrong??
+begin set_account_match_code(23684541); end;  COMMIT;  -- and use ANID
+
+DECLARE x VARCHAR2(1000); BEGIN x := GET_ACCOUNT_MATCH_CODE(223625); dbms_output.put_line(x); END;
+DECLARE x VARCHAR2(1000); BEGIN x := GET_ACCOUNT_MATCH_CODE(23684541); dbms_output.put_line(x); END;
+
+
+    SELECT t.ACCOUNT_NAME_ID, s.* --account_search_id
+      FROM ACCOUNT_NAME t, ACCOUNT_SEARCH S
+     WHERE t.account_id = 223625
+      -- and t.account_name_id != 23684541
+ --      and t.override_account_name = 0
+       and t.Account_Name_Id = s.account_search_id(+)
+--       AND s.account_search_id is null;
+
+SELECT * FROM account_name a WHERE a.account_name_match_code IS NULL
+
+SELECT to_number(column_value) aid FROM xmltable(('"' || REPLACE('223625,456', ',', '","') || '"'))
+
+      select t.account_id, t.account_name, ab.primary_account_attribute_id
+--        BULK COLLECT        INTO accountIdTable, acctNameTable, primAcctAttrIdTable
+        from ( SELECT to_number(column_value) account_ FROM xmltable(('"' || REPLACE('223625', ',', '","') || '"')) ) t, account_base ab
+       where t.account_id = ab.account_id
+         and not exists (select 1
+                from account_name an
+               where t.account_id = an.account_id
+                 and t.account_name = an.account_name)
+                 
+SELECT * FROM account_base a WHERE a.account_id=277745
+SELECT * FROM ACCOUNT_NAME_ATTRIBUTE a WHERE a.account_attribute_id=277745
+
+--all names for an account
+SELECT * FROM account_name a WHERE a.account_name_id IN( SELECT account_name_id FROM ACCOUNT_NAME_ATTRIBUTE a WHERE a.account_attribute_id IN( SELECT account_id FROM account_base a WHERE a.account_id=277745 )  )--mccf 091-soge
+
+SELECT * FROM account_name a WHERE a.account_name_match_code IS NULL --TODO
+begin set_account_match_code(23684721); end;  COMMIT; 
+
+
+
+SELECT * FROM account_name a WHERE a.account_name_id IN( 
+  SELECT account_name_id FROM ACCOUNT_NAME_ATTRIBUTE a WHERE a.account_attribute_id IN( 
+    SELECT account_id FROM account_base a WHERE a.account_id=277745 )  )
+
+SELECT *
+        FROM orion_38694@esd T, account_base ab
+       WHERE T.account_id = ab.account_id
+         AND NOT EXISTS (SELECT 1
+                FROM account_name an
+               WHERE T.account_id = an.account_id
+                 AND T.account_name = an.account_name)
+AND T.account_id=346471-- geneit --277745   soge

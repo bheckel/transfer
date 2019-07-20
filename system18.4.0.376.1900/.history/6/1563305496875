@@ -1,0 +1,6 @@
+--try est 9pm
+SELECT account_name, account_name_match_code FROM account_name@est a WHERE a.account_name_id IN( SELECT account_name_id FROM ACCOUNT_NAME_ATTRIBUTE@est a WHERE a.account_attribute_id IN( SELECT account_id FROM account_base@est a WHERE a.account_id=277745 )  );
+
+SELECT account_name, account_name_match_code FROM account_name@esp a WHERE a.account_name_id IN( SELECT account_name_id FROM ACCOUNT_NAME_ATTRIBUTE@esp a WHERE a.account_attribute_id IN( SELECT account_id FROM account_base@esp a WHERE a.account_id=277745 )  );
+
+SELECT * FROM account_name@est where account_name_match_code is null;

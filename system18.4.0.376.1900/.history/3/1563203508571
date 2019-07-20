@@ -1,0 +1,101 @@
+CREATE OR REPLACE PACKAGE ORION38694 IS
+  -- ----------------------------------------------------------------------------
+  -- Template for jira.sh 
+  -- DROP PACKAGE ORION38694
+  -- ----------------------------------------------------------------------------
+          PROCEDURE add_acct_names;
+END;
+/
+
+CREATE OR REPLACE PACKAGE BODY ORION38694 IS
+
+  PROCEDURE add_acct_names IS
+    TYPE varcharTable IS TABLE OF VARCHAR(1000);
+    TYPE numberTable IS TABLE OF NUMBER;
+
+    accountIdTable      numberTable;
+    acctNameTable       varcharTable;
+    primAcctAttrIdTable numberTable;
+    newAccountNameId    NUMBER;
+    sys_dttm            DATE := sysdate;
+
+    BEGIN
+      select t.account_id, t.account_name, ab.primary_account_attribute_id
+        BULK COLLECT
+        INTO accountIdTable, acctNameTable, primAcctAttrIdTable
+        from orion_38694@esd t, account_base ab
+       where t.account_id = ab.account_id
+         and not exists (select 1
+                from account_name an
+               where t.account_id = an.account_id
+                 and t.account_name = an.account_name)
+AND t.account_id=346471
+      ;
+    
+      FOR i IN 1 .. accountIdTable.COUNT LOOP
+        dbms_output.put_line('processing ' || acctNameTable(i));
+        
+        newAccountNameId := UID_Account_Name.Nextval;
+        /* insert into ACCOUNT_NAME */
+        INSERT INTO ACCOUNT_NAME
+          (ACCOUNT_NAME_ID,
+           ACCOUNT_ID,
+           ACCOUNT_NAME,
+           ACCOUNT_NAME_FOR_MATCHING,
+           ACCOUNT_NAME_MATCH_CODE,
+           ACCOUNT_NAME_ORIGIN,
+           ORIGINAL_ACCOUNT_NAME,
+           OVERRIDE_ACCOUNT_NAME,
+           CREATED,
+           CREATEDBY,
+           UPDATED,
+           UPDATEDBY)
+        VALUES
+          (newAccountNameId,
+           accountIdTable(i),
+           acctNameTable(i),
+           ACCOUNTS.getAccountNameForMatching(acctNameTable(i)),
+           null,
+           null,
+           0,
+           0,
+           sys_dttm,
+           0,
+           sys_dttm,
+           0);
+        /* insert into ACCOUNT_NAME_ATTRIBUTE */
+        INSERT INTO ACCOUNT_NAME_ATTRIBUTE
+          (ACCOUNT_NAME_ATTRIBUTE_ID,
+           ACCOUNT_NAME_ID,
+           ACCOUNT_ATTRIBUTE_ID,
+           ACCOUNT_NAME_TYPE,
+           CREATED,
+           CREATEDBY,
+           UPDATED,
+           UPDATEDBY)
+        VALUES
+          (Uid_Account_Name_Attribute.Nextval,
+           newAccountNameId,
+           primAcctAttrIdTable(i),
+           'U',
+           sys_dttm,
+           0,
+           sys_dttm,
+           0);
+       -- COMMIT;
+        ROLLBACK;
+        /* update ACCOUNT_SEARCH */
+        --set_account_match_code(newAccountNameId, 1);
+        --COMMIT;
+      
+      END LOOP;
+    
+    --MAINT.logdatachange(step => 0, status => 'ORION-38694', release => 'N/A', defect => 'N/A', startTime => SYSDATE, do_commit => 1); 
+  
+    EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(SQLCode);
+
+  END add_acct_names;
+END;
+/

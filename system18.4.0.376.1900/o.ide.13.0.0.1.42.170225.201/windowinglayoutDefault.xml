@@ -1,0 +1,47 @@
+<LayoutInfo>
+   <clientLayoutData>
+      <global>
+         <view-data expandData1.nodePath="My Computer,Recent Files," expandData2.nodePath="My Computer,My Computer," expandData0.nodePath="My Computer," selectionRow="11" expandData3.nodePath="My Computer,My Computer,Windows (C:)," ID="FileNavigatorWindow.Files" expandData.count="4"/>
+         <view-data ReportsDummy="true" ID="ReportNavigatorWindow.DatabaseReports"/>
+         <view-data ClosedByUser="false" ID="LogWindow.Log"/>
+      </global>
+      <Editing layout-name="Editing">
+         <view-data USE_LARGE_ICONS="true" pageSelection="" ID="PALETTEFACTORY.PALETTE"/>
+      </Editing>
+   </clientLayoutData>
+   <knownDockableFactories>
+      <Debugger/>
+      <OWA_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <DbaNavigatorWindow/>
+      <PALETTEFACTORY/>
+      <GridNavWindow/>
+      <InspectorWindow/>
+      <ReportNavigatorWindow/>
+      <SNIPPET_VIEW_TYPE/>
+      <FileNavigatorWindow/>
+      <EXTDockable/>
+      <Systemoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <DBMS_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <OUTLINE_VIEW_TYPE/>
+      <SEARCH_VIEW_TYPE/>
+      <BOOKMARKS_VIEW_TYPE/>
+      <DatabaseNavigatorWindow/>
+      <DataMinerNavigator/>
+      <RECENT_OBJECTS_VIEW_TYPE/>
+      <RunManagerWindow/>
+      <Applicationoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <SshNavigatorWindow/>
+      <ExplorerWindow/>
+      <SQLHISTORY_VIEW_TYPE/>
+      <TestNavWindow/>
+      <LogWindow/>
+      <UnifiedThumbnailDockable/>
+      <SCHEDULE_VIEW_TYPE/>
+      <ComponentPalette/>
+   </knownDockableFactories>
+   <knowTriggeredLayouts>
+      <Debugging/>
+      <Editing/>
+   </knowTriggeredLayouts>
+   <visibilityLayouts/>
+</LayoutInfo>
