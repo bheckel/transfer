@@ -1,4 +1,0 @@
-BEGIN
-  ORION38694.ADD_ACCT_NAMES();
---rollback; 
-END;
