@@ -1,1 +1,2 @@
-C:\Users\heck\AppData\Roaming\SQL Developer
+C:\Users\xxx\AppData\Roaming\SQL Developer\xxx\o.sqldeveloper\
+delete project\
