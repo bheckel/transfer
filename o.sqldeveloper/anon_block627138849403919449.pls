@@ -1,0 +1,4 @@
+BEGIN
+  ORION37777.DO_TESTS();
+rollback; 
+END;

@@ -1,0 +1,10 @@
+DECLARE
+  IN_TABLE VARCHAR2(200);
+BEGIN
+  IN_TABLE := 'orion37368';
+
+  BULK_DELETE_ACCOUNTS(
+    IN_TABLE => IN_TABLE
+  );
+rollback; 
+END;

@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">SQL_TEXT</Item>
+      <Item class="java.lang.String">SQL_FULLTEXT</Item>
+      <Item class="java.lang.String">SQL_ID</Item>
+      <Item class="java.lang.String">SHARABLE_MEM</Item>
+      <Item class="java.lang.String">PERSISTENT_MEM</Item>
+      <Item class="java.lang.String">RUNTIME_MEM</Item>
+      <Item class="java.lang.String">SORTS</Item>
+      <Item class="java.lang.String">LOADED_VERSIONS</Item>
+      <Item class="java.lang.String">OPEN_VERSIONS</Item>
+      <Item class="java.lang.String">USERS_OPENING</Item>
+      <Item class="java.lang.String">FETCHES</Item>
+      <Item class="java.lang.String">EXECUTIONS</Item>
+      <Item class="java.lang.String">PX_SERVERS_EXECUTIONS</Item>
+      <Item class="java.lang.String">END_OF_FETCH_COUNT</Item>
+      <Item class="java.lang.String">USERS_EXECUTING</Item>
+      <Item class="java.lang.String">LOADS</Item>
+      <Item class="java.lang.String">FIRST_LOAD_TIME</Item>
+      <Item class="java.lang.String">INVALIDATIONS</Item>
+      <Item class="java.lang.String">PARSE_CALLS</Item>
+      <Item class="java.lang.String">DISK_READS</Item>
+      <Item class="java.lang.String">DIRECT_WRITES</Item>
+      <Item class="java.lang.String">BUFFER_GETS</Item>
+      <Item class="java.lang.String">APPLICATION_WAIT_TIME</Item>
+      <Item class="java.lang.String">CONCURRENCY_WAIT_TIME</Item>
+      <Item class="java.lang.String">CLUSTER_WAIT_TIME</Item>
+      <Item class="java.lang.String">USER_IO_WAIT_TIME</Item>
+      <Item class="java.lang.String">PLSQL_EXEC_TIME</Item>
+      <Item class="java.lang.String">JAVA_EXEC_TIME</Item>
+      <Item class="java.lang.String">ROWS_PROCESSED</Item>
+      <Item class="java.lang.String">COMMAND_TYPE</Item>
+      <Item class="java.lang.String">OPTIMIZER_MODE</Item>
+      <Item class="java.lang.String">OPTIMIZER_COST</Item>
+      <Item class="java.lang.String">OPTIMIZER_ENV</Item>
+      <Item class="java.lang.String">OPTIMIZER_ENV_HASH_VALUE</Item>
+      <Item class="java.lang.String">PARSING_USER_ID</Item>
+      <Item class="java.lang.String">PARSING_SCHEMA_ID</Item>
+      <Item class="java.lang.String">PARSING_SCHEMA_NAME</Item>
+      <Item class="java.lang.String">KEPT_VERSIONS</Item>
+      <Item class="java.lang.String">ADDRESS</Item>
+      <Item class="java.lang.String">TYPE_CHK_HEAP</Item>
+      <Item class="java.lang.String">HASH_VALUE</Item>
+      <Item class="java.lang.String">OLD_HASH_VALUE</Item>
+      <Item class="java.lang.String">PLAN_HASH_VALUE</Item>
+      <Item class="java.lang.String">CHILD_NUMBER</Item>
+      <Item class="java.lang.String">SERVICE</Item>
+      <Item class="java.lang.String">SERVICE_HASH</Item>
+      <Item class="java.lang.String">MODULE</Item>
+      <Item class="java.lang.String">MODULE_HASH</Item>
+      <Item class="java.lang.String">ACTION</Item>
+      <Item class="java.lang.String">ACTION_HASH</Item>
+      <Item class="java.lang.String">SERIALIZABLE_ABORTS</Item>
+      <Item class="java.lang.String">OUTLINE_CATEGORY</Item>
+      <Item class="java.lang.String">CPU_TIME</Item>
+      <Item class="java.lang.String">ELAPSED_TIME</Item>
+      <Item class="java.lang.String">OUTLINE_SID</Item>
+      <Item class="java.lang.String">CHILD_ADDRESS</Item>
+      <Item class="java.lang.String">SQLTYPE</Item>
+      <Item class="java.lang.String">REMOTE</Item>
+      <Item class="java.lang.String">OBJECT_STATUS</Item>
+      <Item class="java.lang.String">LITERAL_HASH_VALUE</Item>
+      <Item class="java.lang.String">LAST_LOAD_TIME</Item>
+      <Item class="java.lang.String">IS_OBSOLETE</Item>
+      <Item class="java.lang.String">IS_BIND_SENSITIVE</Item>
+      <Item class="java.lang.String">IS_BIND_AWARE</Item>
+      <Item class="java.lang.String">IS_SHAREABLE</Item>
+      <Item class="java.lang.String">CHILD_LATCH</Item>
+      <Item class="java.lang.String">SQL_PROFILE</Item>
+      <Item class="java.lang.String">SQL_PATCH</Item>
+      <Item class="java.lang.String">SQL_PLAN_BASELINE</Item>
+      <Item class="java.lang.String">PROGRAM_ID</Item>
+      <Item class="java.lang.String">PROGRAM_LINE#</Item>
+      <Item class="java.lang.String">EXACT_MATCHING_SIGNATURE</Item>
+      <Item class="java.lang.String">FORCE_MATCHING_SIGNATURE</Item>
+      <Item class="java.lang.String">LAST_ACTIVE_TIME</Item>
+      <Item class="java.lang.String">BIND_DATA</Item>
+      <Item class="java.lang.String">TYPECHECK_MEM</Item>
+      <Item class="java.lang.String">IO_CELL_OFFLOAD_ELIGIBLE_BYTES</Item>
+      <Item class="java.lang.String">IO_INTERCONNECT_BYTES</Item>
+      <Item class="java.lang.String">PHYSICAL_READ_REQUESTS</Item>
+      <Item class="java.lang.String">PHYSICAL_READ_BYTES</Item>
+      <Item class="java.lang.String">PHYSICAL_WRITE_REQUESTS</Item>
+      <Item class="java.lang.String">PHYSICAL_WRITE_BYTES</Item>
+      <Item class="java.lang.String">OPTIMIZED_PHY_READ_REQUESTS</Item>
+      <Item class="java.lang.String">LOCKED_TOTAL</Item>
+      <Item class="java.lang.String">PINNED_TOTAL</Item>
+      <Item class="java.lang.String">IO_CELL_UNCOMPRESSED_BYTES</Item>
+      <Item class="java.lang.String">IO_CELL_OFFLOAD_RETURNED_BYTES</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>68</Item>
+      <Item>455</Item>
+      <Item>83</Item>
+      <Item>98</Item>
+      <Item>107</Item>
+      <Item>92</Item>
+      <Item>52</Item>
+      <Item>115</Item>
+      <Item>102</Item>
+      <Item>102</Item>
+      <Item>63</Item>
+      <Item>82</Item>
+      <Item>150</Item>
+      <Item>138</Item>
+      <Item>113</Item>
+      <Item>52</Item>
+      <Item>119</Item>
+      <Item>97</Item>
+      <Item>87</Item>
+      <Item>81</Item>
+      <Item>101</Item>
+      <Item>88</Item>
+      <Item>149</Item>
+      <Item>158</Item>
+      <Item>126</Item>
+      <Item>126</Item>
+      <Item>110</Item>
+      <Item>105</Item>
+      <Item>115</Item>
+      <Item>101</Item>
+      <Item>109</Item>
+      <Item>107</Item>
+      <Item>2645</Item>
+      <Item>169</Item>
+      <Item>112</Item>
+      <Item>127</Item>
+      <Item>144</Item>
+      <Item>99</Item>
+      <Item>101</Item>
+      <Item>101</Item>
+      <Item>83</Item>
+      <Item>109</Item>
+      <Item>114</Item>
+      <Item>96</Item>
+      <Item>89</Item>
+      <Item>94</Item>
+      <Item>167</Item>
+      <Item>93</Item>
+      <Item>197</Item>
+      <Item>91</Item>
+      <Item>134</Item>
+      <Item>122</Item>
+      <Item>69</Item>
+      <Item>92</Item>
+      <Item>85</Item>
+      <Item>101</Item>
+      <Item>62</Item>
+      <Item>60</Item>
+      <Item>101</Item>
+      <Item>129</Item>
+      <Item>119</Item>
+      <Item>86</Item>
+      <Item>116</Item>
+      <Item>102</Item>
+      <Item>92</Item>
+      <Item>87</Item>
+      <Item>86</Item>
+      <Item>77</Item>
+      <Item>122</Item>
+      <Item>86</Item>
+      <Item>105</Item>
+      <Item>173</Item>
+      <Item>175</Item>
+      <Item>115</Item>
+      <Item>653</Item>
+      <Item>104</Item>
+      <Item>198</Item>
+      <Item>151</Item>
+      <Item>158</Item>
+      <Item>136</Item>
+      <Item>164</Item>
+      <Item>142</Item>
+      <Item>190</Item>
+      <Item>96</Item>
+      <Item>94</Item>
+      <Item>183</Item>
+      <Item>208</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23esdselect * /*sql_id, child_number, sql_text, sql_fulltext*/ from v$sql where upper(sql_text) like '%CREATED%'</uniqueName>
+</TableSettings>

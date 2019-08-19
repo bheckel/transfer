@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">OPPORTUNITY_ID</Item>
+      <Item class="java.lang.String">OPPORTUNITY_TYPE</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>107</Item>
+      <Item>120</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item class="java.lang.String">2 asc</Item>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23espsSELECT opportunity_id, opportunity_type FROM opportunity_base@esp WHERE opportunity_id in(
+   select opportunity_id from opportunity_FLEX_field@esp t WHERE t.custom_area_property_id in( SELECT custom_area_property_id FROM custom_area_property@esp c WHERE c.PROPERTY_NAME in ('Host Fee/RMSS Fee','Hardware/Infrastructure','GIDB Prepay Consulting Services','Cloud Software') )
+   )</uniqueName>
+</TableSettings>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">VALUE</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>50</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item class="java.lang.String">1 asc</Item>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23esdselect distinct value
+  from custom_query_lov_view c, territory_hierarchy h
+where 
+    h.sub_territory_lov_id = c.list_of_values_id
+   and c.custom_list_id = 13 --salesgroup
+   and c.custom_level_value = 'CA'
+   and c.retired = 0</uniqueName>
+</TableSettings>

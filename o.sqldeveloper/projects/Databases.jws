@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <list n="contentSets">
+      <string v="RaptorFiles"/>
+   </list>
+   <list n="listOfChildren">
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#eskmc@esr.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esp.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esp.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esp.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esp.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esps.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esps.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esps.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esr.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esr.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esr.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#est.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#est.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#est.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esuat.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esuat.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esuat.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esd.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esps.jpr"/></hash>
+      <hash><url n="URL" path="IdeConnections#esuat.jpr"/></hash>
+   </list>
+</jws:workspace>

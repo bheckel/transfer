@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">CUSTOM_AREA_PROPERTY_ID</Item>
+      <Item class="java.lang.String">PROPERTY_LABEL</Item>
+      <Item class="java.lang.String">ALLSGS</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>169</Item>
+      <Item>107</Item>
+      <Item>55</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23espsSELECT DISTINCT cap.custom_area_property_id, cap.PROPERTY_LABEL, listagg(clsp.level_value, ',') WITHIN GROUP (ORDER BY clsp.level_value) OVER (PARTITION BY  clsp.CUSTOM_AREA_PROPERTY_ID) allsgs
+        from             custom_toc ct 
+               left join custom_section cs         on ct.CUSTOM_TOC_ID = cs.CUSTOM_TOC_ID
+               left join custom_lvl_sect_prop clsp on cs.CUSTOM_SECTION_ID = clsp.CUSTOM_SECTION_ID
+               left join custom_area_property cap  on clsp.CUSTOM_AREA_PROPERTY_ID = cap.CUSTOM_AREA_PROPERTY_ID
+               left join custom_level cl           on clsp.CUSTOM_LEVEL_ID = cl.CUSTOM_LEVEL_ID
+        WHERE   cap.custom_area_property_id in(
+          SELECT custom_area_property_id FROM custom_area_property c WHERE convert(c.PROPERTY_NAME,'US7ASCII') IN ('Host Fee/RMSS Fee')
+          )</uniqueName>
+</TableSettings>

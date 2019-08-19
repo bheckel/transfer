@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">VIEW_ID</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_LIST_ID</Item>
+      <Item class="java.lang.String">CUSTOM_LIST_ID</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_ID</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_NAME</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_VALUE</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_WEIGHT</Item>
+      <Item class="java.lang.String">LIST_OF_VALUES_ID</Item>
+      <Item class="java.lang.String">PARENT_ID</Item>
+      <Item class="java.lang.String">VALUE</Item>
+      <Item class="java.lang.String">VALUE_DESCRIPTION</Item>
+      <Item class="java.lang.String">RETIRED</Item>
+      <Item class="java.lang.String">MUST_CHANGE</Item>
+      <Item class="java.lang.String">REPORTING_ONLY</Item>
+      <Item class="java.lang.String">LIST_NAME</Item>
+      <Item class="java.lang.String">LIST_DESCRIPTION</Item>
+      <Item class="java.lang.String">PARENT_TERRITORY_LOV_ID</Item>
+      <Item class="java.lang.String">SUB_TERRITORY_LOV_ID</Item>
+      <Item class="java.lang.String">VALID_FOR_PTG</Item>
+      <Item class="java.lang.String">HIERARCHY_LEVEL</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>62</Item>
+      <Item>139</Item>
+      <Item>105</Item>
+      <Item>112</Item>
+      <Item>129</Item>
+      <Item>132</Item>
+      <Item>141</Item>
+      <Item>120</Item>
+      <Item>75</Item>
+      <Item>50</Item>
+      <Item>215</Item>
+      <Item>62</Item>
+      <Item>93</Item>
+      <Item>109</Item>
+      <Item>74</Item>
+      <Item>114</Item>
+      <Item>163</Item>
+      <Item>143</Item>
+      <Item>100</Item>
+      <Item>111</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23espsSELECT *--territory_lov_id 
+              FROM custom_query_lov_view c, territory_hierarchy h
+             WHERE h.parent_territory_lov_id = 531611
+               AND h.sub_territory_lov_id = c.list_of_values_id
+               AND c.custom_list_id = 13
+               AND c.retired = 0</uniqueName>
+</TableSettings>

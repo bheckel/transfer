@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">EMPLOYEE_ID</Item>
+      <Item class="java.lang.String">COUNTRY_CODE3_LOV_ID</Item>
+      <Item class="java.lang.String">COUNTRY_CODE2_LOV_ID</Item>
+      <Item class="java.lang.String">TERRITORY_LOV_ID</Item>
+      <Item class="java.lang.String">EMPLOYEE_PREFERENCE_ID</Item>
+      <Item class="java.lang.String">SAS_EMPNO</Item>
+      <Item class="java.lang.String">BUSINESS_UNIT_ID</Item>
+      <Item class="java.lang.String">MANAGER_SAS_EMPNO</Item>
+      <Item class="java.lang.String">FIRST_NAME_MATCHCODE</Item>
+      <Item class="java.lang.String">LAST_NAME_MATCHCODE</Item>
+      <Item class="java.lang.String">NAMEMATCHCODE</Item>
+      <Item class="java.lang.String">LOCATION</Item>
+      <Item class="java.lang.String">CURRSTAT</Item>
+      <Item class="java.lang.String">UNIT</Item>
+      <Item class="java.lang.String">DEPARTMENT_CODE</Item>
+      <Item class="java.lang.String">USERID</Item>
+      <Item class="java.lang.String">PHONE</Item>
+      <Item class="java.lang.String">ROOM</Item>
+      <Item class="java.lang.String">DEPTNAME</Item>
+      <Item class="java.lang.String">DIVISION</Item>
+      <Item class="java.lang.String">DIVCODE</Item>
+      <Item class="java.lang.String">PREFIX</Item>
+      <Item class="java.lang.String">REGION</Item>
+      <Item class="java.lang.String">FIRST_NAME</Item>
+      <Item class="java.lang.String">MIDDLE_NAME</Item>
+      <Item class="java.lang.String">LAST_NAME</Item>
+      <Item class="java.lang.String">SUFFIX</Item>
+      <Item class="java.lang.String">EMAIL</Item>
+      <Item class="java.lang.String">GONE</Item>
+      <Item class="java.lang.String">SALESGROUP</Item>
+      <Item class="java.lang.String">REMOTE_USER</Item>
+      <Item class="java.lang.String">ADMINISTRATOR</Item>
+      <Item class="java.lang.String">DEVELOPER</Item>
+      <Item class="java.lang.String">CONTACTEXCELIMPORT</Item>
+      <Item class="java.lang.String">EDITINDUSTRYTIER</Item>
+      <Item class="java.lang.String">CHANGE_ACCOUNT</Item>
+      <Item class="java.lang.String">OUTLOOKSYNCHSTATUS</Item>
+      <Item class="java.lang.String">CREATED</Item>
+      <Item class="java.lang.String">CREATEDBY</Item>
+      <Item class="java.lang.String">UPDATED</Item>
+      <Item class="java.lang.String">UPDATEDBY</Item>
+      <Item class="java.lang.String">H_VERSION</Item>
+      <Item class="java.lang.String">PREFIX_LOV_ID</Item>
+      <Item class="java.lang.String">ACCOUNT_ADMINISTRATOR</Item>
+      <Item class="java.lang.String">PARTNER</Item>
+      <Item class="java.lang.String">PROSPECTS_USER</Item>
+      <Item class="java.lang.String">LAST_SAW_NOTICE</Item>
+      <Item class="java.lang.String">CREATE_OPPORTUNITY</Item>
+      <Item class="java.lang.String">PROSPECTEXCELIMPORT</Item>
+      <Item class="java.lang.String">OPP_WONLOST</Item>
+      <Item class="java.lang.String">IP_BULK_UPDATE_USER</Item>
+      <Item class="java.lang.String">IMITATE_USER</Item>
+      <Item class="java.lang.String">UNMARK_CONTACT_GONE_USER</Item>
+      <Item class="java.lang.String">CREATE_ACCOUNT</Item>
+      <Item class="java.lang.String">RENEWAL_FORECAST</Item>
+      <Item class="java.lang.String">LIFECYCLE_USER</Item>
+      <Item class="java.lang.String">JOBTITLE</Item>
+      <Item class="java.lang.String">CREATE_RISK</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY</Item>
+      <Item class="java.lang.String">RETIRED_TIME</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE</Item>
+      <Item class="java.lang.String">OPP_RENEWAL_FORECAST</Item>
+      <Item class="java.lang.String">IS_SALES_CREDIT_ADMIN</Item>
+      <Item class="java.lang.String">EDIT_DUNS_NUMBER</Item>
+      <Item class="java.lang.String">COST_CENTER</Item>
+      <Item class="java.lang.String">HIRE_DATE</Item>
+      <Item class="java.lang.String">TERMINATION_DATE</Item>
+      <Item class="java.lang.String">IS_SCA_ADMIN</Item>
+      <Item class="java.lang.String">IS_TERRITORY_PREF_LOCKED</Item>
+      <Item class="java.lang.String">IS_ADMIN_ASSIGNABLE</Item>
+      <Item class="java.lang.String">COMPANY_NM</Item>
+      <Item class="java.lang.String">SALES_COMP_ADMIN</Item>
+      <Item class="java.lang.String">CAPTURE_REP_CALC_TESTS</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>87</Item>
+      <Item>149</Item>
+      <Item>149</Item>
+      <Item>118</Item>
+      <Item>157</Item>
+      <Item>79</Item>
+      <Item>114</Item>
+      <Item>134</Item>
+      <Item>167</Item>
+      <Item>167</Item>
+      <Item>167</Item>
+      <Item>71</Item>
+      <Item>72</Item>
+      <Item>43</Item>
+      <Item>119</Item>
+      <Item>56</Item>
+      <Item>95</Item>
+      <Item>50</Item>
+      <Item>173</Item>
+      <Item>167</Item>
+      <Item>64</Item>
+      <Item>54</Item>
+      <Item>58</Item>
+      <Item>82</Item>
+      <Item>90</Item>
+      <Item>77</Item>
+      <Item>54</Item>
+      <Item>113</Item>
+      <Item>47</Item>
+      <Item>84</Item>
+      <Item>92</Item>
+      <Item>103</Item>
+      <Item>76</Item>
+      <Item>136</Item>
+      <Item>115</Item>
+      <Item>115</Item>
+      <Item>138</Item>
+      <Item>113</Item>
+      <Item>77</Item>
+      <Item>113</Item>
+      <Item>77</Item>
+      <Item>76</Item>
+      <Item>96</Item>
+      <Item>158</Item>
+      <Item>65</Item>
+      <Item>109</Item>
+      <Item>116</Item>
+      <Item>135</Item>
+      <Item>140</Item>
+      <Item>95</Item>
+      <Item>136</Item>
+      <Item>92</Item>
+      <Item>181</Item>
+      <Item>113</Item>
+      <Item>126</Item>
+      <Item>103</Item>
+      <Item>65</Item>
+      <Item>87</Item>
+      <Item>191</Item>
+      <Item>122</Item>
+      <Item>92</Item>
+      <Item>221</Item>
+      <Item>152</Item>
+      <Item>147</Item>
+      <Item>122</Item>
+      <Item>91</Item>
+      <Item>113</Item>
+      <Item>121</Item>
+      <Item>94</Item>
+      <Item>168</Item>
+      <Item>135</Item>
+      <Item>113</Item>
+      <Item>123</Item>
+      <Item>158</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23esdSELECT * FROM employee_base WHERE     employee_id=88190</uniqueName>
+</TableSettings>

@@ -1,0 +1,288 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">CUSTOM_TOC_ID</Item>
+      <Item class="java.lang.String">CUSTOM_AREA_ID</Item>
+      <Item class="java.lang.String">TOC_NAME</Item>
+      <Item class="java.lang.String">CREATED</Item>
+      <Item class="java.lang.String">CREATEDBY</Item>
+      <Item class="java.lang.String">UPDATED</Item>
+      <Item class="java.lang.String">UPDATEDBY</Item>
+      <Item class="java.lang.String">H_VERSION</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY</Item>
+      <Item class="java.lang.String">RETIRED_TIME</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE</Item>
+      <Item class="java.lang.String">CUSTOM_SECTION_ID</Item>
+      <Item class="java.lang.String">CUSTOM_TOC_ID_1</Item>
+      <Item class="java.lang.String">SECTION_NAME</Item>
+      <Item class="java.lang.String">SECTION_TYPE</Item>
+      <Item class="java.lang.String">TABLE_ENUM</Item>
+      <Item class="java.lang.String">TABLE_GETTER</Item>
+      <Item class="java.lang.String">TABLE_ALLOW_MULTIPLES</Item>
+      <Item class="java.lang.String">BASE_OBJECT</Item>
+      <Item class="java.lang.String">CREATED_1</Item>
+      <Item class="java.lang.String">CREATEDBY_1</Item>
+      <Item class="java.lang.String">UPDATED_1</Item>
+      <Item class="java.lang.String">UPDATEDBY_1</Item>
+      <Item class="java.lang.String">H_VERSION_1</Item>
+      <Item class="java.lang.String">TABLE_ROW_VARIABLE</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED_1</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY_1</Item>
+      <Item class="java.lang.String">RETIRED_TIME_1</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE_1</Item>
+      <Item class="java.lang.String">CUSTOM_LVL_SECT_PROP_ID</Item>
+      <Item class="java.lang.String">CUSTOM_AREA_PROPERTY_ID</Item>
+      <Item class="java.lang.String">CUSTOM_SECTION_ID_1</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_ID</Item>
+      <Item class="java.lang.String">LEVEL_VALUE</Item>
+      <Item class="java.lang.String">PROPERTY_ORDER</Item>
+      <Item class="java.lang.String">PROPERTY_ORDER_LOCKED</Item>
+      <Item class="java.lang.String">DISPLAY_LOCKED</Item>
+      <Item class="java.lang.String">MAX_DISPLAY_CHARACTERS</Item>
+      <Item class="java.lang.String">FIELD_COMPLETION_REQUIRED</Item>
+      <Item class="java.lang.String">FIELD_READ_ONLY</Item>
+      <Item class="java.lang.String">FIELD_RENDER_TYPE</Item>
+      <Item class="java.lang.String">FIELD_RENDER_TYPE_LOCKED</Item>
+      <Item class="java.lang.String">FIELD_MAX_SIZE</Item>
+      <Item class="java.lang.String">FIELD_DISPLAY_SIZE</Item>
+      <Item class="java.lang.String">FIELD_COLUMN_SPAN</Item>
+      <Item class="java.lang.String">FIELD_ROW_SPAN</Item>
+      <Item class="java.lang.String">OVERRIDE_FIELD_GETTER</Item>
+      <Item class="java.lang.String">SEARCH_CONTEXT_INDEX</Item>
+      <Item class="java.lang.String">SEARCH_ALIAS</Item>
+      <Item class="java.lang.String">SEARCH_PROPERTY</Item>
+      <Item class="java.lang.String">SEARCH_MATCH_CODE_PROPERTY</Item>
+      <Item class="java.lang.String">FIELD_READ_ONLY_EL</Item>
+      <Item class="java.lang.String">FIELD_EDIT_ACTION</Item>
+      <Item class="java.lang.String">FIELD_VIEW_ACTION</Item>
+      <Item class="java.lang.String">SELECT_LIST_INCLUDES_EMPTY</Item>
+      <Item class="java.lang.String">CREATED_2</Item>
+      <Item class="java.lang.String">CREATEDBY_2</Item>
+      <Item class="java.lang.String">UPDATED_2</Item>
+      <Item class="java.lang.String">UPDATEDBY_2</Item>
+      <Item class="java.lang.String">H_VERSION_2</Item>
+      <Item class="java.lang.String">SL_INCLUDES_REPORTING_ONLY</Item>
+      <Item class="java.lang.String">SL_INCLUDES_RETIRED</Item>
+      <Item class="java.lang.String">AJAX_CONTROL</Item>
+      <Item class="java.lang.String">LVL_FLD_COMPLETE_REQ_PRE</Item>
+      <Item class="java.lang.String">LVL_FLD_COMPLETE_REQ_EL</Item>
+      <Item class="java.lang.String">OR_FIELD_RESOURCE_BUNDLE_KEY</Item>
+      <Item class="java.lang.String">OR_COL_RESOURCE_BUNDLE_KEY</Item>
+      <Item class="java.lang.String">HIDE_PROPERTY</Item>
+      <Item class="java.lang.String">FIELD_RENDERED_EL</Item>
+      <Item class="java.lang.String">FIELD_ACTION</Item>
+      <Item class="java.lang.String">COLUMN_RENDERED_EL</Item>
+      <Item class="java.lang.String">COLUMN_ACTION</Item>
+      <Item class="java.lang.String">FIELD_CLEAR_ACTION</Item>
+      <Item class="java.lang.String">PROPERTY_ORDER_SG</Item>
+      <Item class="java.lang.String">PROPERTY_ORDER_BU</Item>
+      <Item class="java.lang.String">PROJECTION_GETTER</Item>
+      <Item class="java.lang.String">PROJECTION_ALIAS</Item>
+      <Item class="java.lang.String">PROJECTION_SQL</Item>
+      <Item class="java.lang.String">ALLOW_NEGATIVE</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED_2</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY_2</Item>
+      <Item class="java.lang.String">RETIRED_TIME_2</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE_2</Item>
+      <Item class="java.lang.String">CUSTOM_AREA_PROPERTY_ID_1</Item>
+      <Item class="java.lang.String">CUSTOM_LIST_ID</Item>
+      <Item class="java.lang.String">CUSTOM_AREA_ID_1</Item>
+      <Item class="java.lang.String">PROPERTY_NAME</Item>
+      <Item class="java.lang.String">PROPERTY_LABEL</Item>
+      <Item class="java.lang.String">IS_FLEX_FIELD</Item>
+      <Item class="java.lang.String">DB_DATATYPE</Item>
+      <Item class="java.lang.String">FIELD_GETTER</Item>
+      <Item class="java.lang.String">FIELD_PREFIX</Item>
+      <Item class="java.lang.String">FIELD_RESOURCE_BUNDLE_KEY</Item>
+      <Item class="java.lang.String">COLUMN_GETTER</Item>
+      <Item class="java.lang.String">COLUMN_PREFIX</Item>
+      <Item class="java.lang.String">COLUMN_RESOURCE_BUNDLE_KEY</Item>
+      <Item class="java.lang.String">COLUMN_SORT_PROPERTY</Item>
+      <Item class="java.lang.String">SEARCH_OPERATOR</Item>
+      <Item class="java.lang.String">SEARCH_MIN_LENGTH</Item>
+      <Item class="java.lang.String">SEARCH_QUICK_ENABLED</Item>
+      <Item class="java.lang.String">ON_CHANGE</Item>
+      <Item class="java.lang.String">IMMEDIATE_ACTION</Item>
+      <Item class="java.lang.String">INFO_MESSAGE_BUNDLE_KEY</Item>
+      <Item class="java.lang.String">SELECTION_LIST_EL</Item>
+      <Item class="java.lang.String">FIELD_BINDING_STRING</Item>
+      <Item class="java.lang.String">FIELD_VALUE_CHANGE_LSTNR</Item>
+      <Item class="java.lang.String">BASE_OBJECT_1</Item>
+      <Item class="java.lang.String">DB_TABLE_FIELD</Item>
+      <Item class="java.lang.String">SEARCH_OBJECT_PROPERTY</Item>
+      <Item class="java.lang.String">CREATED_3</Item>
+      <Item class="java.lang.String">CREATEDBY_3</Item>
+      <Item class="java.lang.String">UPDATED_3</Item>
+      <Item class="java.lang.String">UPDATEDBY_3</Item>
+      <Item class="java.lang.String">H_VERSION_3</Item>
+      <Item class="java.lang.String">PROPERTY_DESCRIPTION</Item>
+      <Item class="java.lang.String">CONVERTER</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED_3</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY_3</Item>
+      <Item class="java.lang.String">RETIRED_TIME_3</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE_3</Item>
+      <Item class="java.lang.String">CUSTOM_LEVEL_ID_1</Item>
+      <Item class="java.lang.String">LEVEL_NAME</Item>
+      <Item class="java.lang.String">WEIGHT</Item>
+      <Item class="java.lang.String">CREATED_4</Item>
+      <Item class="java.lang.String">CREATEDBY_4</Item>
+      <Item class="java.lang.String">UPDATED_4</Item>
+      <Item class="java.lang.String">UPDATEDBY_4</Item>
+      <Item class="java.lang.String">H_VERSION_4</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATED_4</Item>
+      <Item class="java.lang.String">ACTUAL_UPDATEDBY_4</Item>
+      <Item class="java.lang.String">RETIRED_TIME_4</Item>
+      <Item class="java.lang.String">AUDIT_SOURCE_4</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>105</Item>
+      <Item>111</Item>
+      <Item>179</Item>
+      <Item>125</Item>
+      <Item>77</Item>
+      <Item>125</Item>
+      <Item>77</Item>
+      <Item>76</Item>
+      <Item>110</Item>
+      <Item>122</Item>
+      <Item>92</Item>
+      <Item>97</Item>
+      <Item>128</Item>
+      <Item>117</Item>
+      <Item>97</Item>
+      <Item>93</Item>
+      <Item>83</Item>
+      <Item>93</Item>
+      <Item>149</Item>
+      <Item>88</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>88</Item>
+      <Item>134</Item>
+      <Item>122</Item>
+      <Item>134</Item>
+      <Item>104</Item>
+      <Item>109</Item>
+      <Item>164</Item>
+      <Item>169</Item>
+      <Item>140</Item>
+      <Item>112</Item>
+      <Item>84</Item>
+      <Item>112</Item>
+      <Item>157</Item>
+      <Item>105</Item>
+      <Item>160</Item>
+      <Item>176</Item>
+      <Item>112</Item>
+      <Item>123</Item>
+      <Item>168</Item>
+      <Item>102</Item>
+      <Item>122</Item>
+      <Item>127</Item>
+      <Item>110</Item>
+      <Item>148</Item>
+      <Item>147</Item>
+      <Item>94</Item>
+      <Item>117</Item>
+      <Item>192</Item>
+      <Item>129</Item>
+      <Item>121</Item>
+      <Item>124</Item>
+      <Item>175</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>88</Item>
+      <Item>181</Item>
+      <Item>134</Item>
+      <Item>98</Item>
+      <Item>169</Item>
+      <Item>161</Item>
+      <Item>196</Item>
+      <Item>188</Item>
+      <Item>101</Item>
+      <Item>123</Item>
+      <Item>92</Item>
+      <Item>137</Item>
+      <Item>106</Item>
+      <Item>130</Item>
+      <Item>131</Item>
+      <Item>131</Item>
+      <Item>127</Item>
+      <Item>118</Item>
+      <Item>108</Item>
+      <Item>109</Item>
+      <Item>191</Item>
+      <Item>134</Item>
+      <Item>104</Item>
+      <Item>109</Item>
+      <Item>181</Item>
+      <Item>105</Item>
+      <Item>123</Item>
+      <Item>107</Item>
+      <Item>107</Item>
+      <Item>92</Item>
+      <Item>89</Item>
+      <Item>197</Item>
+      <Item>149</Item>
+      <Item>175</Item>
+      <Item>105</Item>
+      <Item>102</Item>
+      <Item>189</Item>
+      <Item>152</Item>
+      <Item>120</Item>
+      <Item>128</Item>
+      <Item>147</Item>
+      <Item>81</Item>
+      <Item>120</Item>
+      <Item>164</Item>
+      <Item>118</Item>
+      <Item>138</Item>
+      <Item>168</Item>
+      <Item>100</Item>
+      <Item>102</Item>
+      <Item>161</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>88</Item>
+      <Item>209</Item>
+      <Item>79</Item>
+      <Item>191</Item>
+      <Item>134</Item>
+      <Item>104</Item>
+      <Item>109</Item>
+      <Item>124</Item>
+      <Item>81</Item>
+      <Item>59</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>125</Item>
+      <Item>89</Item>
+      <Item>88</Item>
+      <Item>122</Item>
+      <Item>134</Item>
+      <Item>104</Item>
+      <Item>109</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item class="java.lang.String">4 desc</Item>
+      <Item class="java.lang.String">4 asc</Item>
+      <Item/>
+   </sortClauses>
+   <uniqueName>IdeConnections%23espsSELECT DISTINCT * --cap.custom_area_property_id, cap.PROPERTY_LABEL, listagg(clsp.level_value, ',') WITHIN GROUP (ORDER BY clsp.level_value) OVER (PARTITION BY  clsp.CUSTOM_AREA_PROPERTY_ID) allsgs
+        from             custom_toc ct 
+               left join custom_section cs         on ct.CUSTOM_TOC_ID = cs.CUSTOM_TOC_ID
+               left join custom_lvl_sect_prop clsp on cs.CUSTOM_SECTION_ID = clsp.CUSTOM_SECTION_ID
+               left join custom_area_property cap  on clsp.CUSTOM_AREA_PROPERTY_ID = cap.CUSTOM_AREA_PROPERTY_ID
+               left join custom_level cl           on clsp.CUSTOM_LEVEL_ID = cl.CUSTOM_LEVEL_ID
+        WHERE   cap.custom_area_property_id in(
+          SELECT custom_area_property_id FROM custom_area_property c WHERE convert(c.PROPERTY_NAME,'US7ASCII') IN ('Host Fee/RMSS Fee')
+          )</uniqueName>
+</TableSettings>

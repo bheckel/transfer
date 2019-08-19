@@ -1,0 +1,4 @@
+BEGIN
+  ZTESTCUR();
+rollback; 
+END;
