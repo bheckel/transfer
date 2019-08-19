@@ -1,4 +1,0 @@
-BEGIN
-  ORION31765.DEL_AUDIT2();
---rollback; 
-END;
